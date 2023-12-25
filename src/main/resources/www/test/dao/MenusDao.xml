@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="www.test.dao.MenusDao">
+    <resultMap id="resultMapBrand" type="www.test.pojo.Menus">
+        <result column="menu_code" property="menuCode"/>
+        <result column="menu_desc" property="menuDesc"/>
+
+    </resultMap>
+    <resultMap id="resultRoleMenu" type="www.test.pojo.MenusRole">
+    <result column="role_id" property="roleId"/>
+    <result column="menu_id" property="menuId"/>
+    </resultMap>
+<select id="getManagementDao" resultMap="resultMapBrand">
+        select m.*from environment_menu m,environment_role_menu r where m.id=r.menu_id and role_id=#{roleId}
+    </select>
+        </mapper>

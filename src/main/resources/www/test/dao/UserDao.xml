@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="www.test.dao.UserDao">
+    <resultMap id="resultMapBrand" type="www.test.pojo.User">
+        <result column="user_code" property="userCode"/>
+        <result column="user_name" property="userName"/>
+        <result column="user_password" property="userPassword"/>
+        <result column="role_id" property="roleId"/>
+        <result column="creation_date" property="creationDate"/>
+    </resultMap>
+    <insert id="addUserListDao" useGeneratedKeys="true" keyProperty="id">
+    insert into environment_user( user_code, user_name, user_password, tel, email, address, role_id)values
+    (#{userCode},#{userName},#{userPassword},#{tel},#{email},#{address},#{roleId})
+    </insert>
+    <insert id="insertUserListDao" >
+        update environment_user set user_code=#{userCode},user_name=#{userName},
+        tel=#{tel},email=#{email},address=#{address},role_id=#{roleId} where id=#{id}
+    </insert>
+    <update id="modifyUserPasswordDao">
+        update environment_user set user_password=#{userPassword} where id=#{id}
+    </update>
+    <delete id="deleteById">
+        delete from environment_user where id=#{id}
+    </delete>
+
+    <select id="selectByNameAndPassword" resultMap="resultMapBrand">
+        select *from environment_user
+        <where>
+            <if test="userCode!=null and userCode!=''">
+                and user_code=#{userCode}
+            </if>
+            <if test="userPassword!=null and userPassword!=''">
+                and user_password=#{userPassword}
+            </if>
+        </where>
+    </select>
+    <select id="getUserListDao" resultMap="resultMapBrand">
+        select *from environment_user
+        <where>
+            <if test="userName!=null and userName!=''">
+                and user_name=#{userName}
+            </if>
+            <if test="roleId!=0">
+                and role_id=#{roleId}
+            </if>
+        </where>
+        order by creation_date DESC limit #{currentPageNo},#{pageSize}
+    </select>
+    <select id="getUserCountDao" resultType="Integer">
+        select count(1) from environment_user
+        <where>
+            <if test="userName!=null and userName!=''">
+                and user_name=#{userName}
+            </if>
+            <if test="roleId!=0">
+                and role_id=#{roleId}
+            </if>
+        </where>
+    </select>
+    <select id="selectById" resultMap="resultMapBrand">
+        select *from environment_user where id=#{id}
+    </select>
+
+</mapper>

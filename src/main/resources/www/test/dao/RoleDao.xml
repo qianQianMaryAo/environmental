@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="www.test.dao.RoleDao">
+    <resultMap id="resultMapBrand" type="www.test.pojo.Role">
+        <result column="role_code" property="roleCode"/>
+        <result column="role_name" property="roleName"/>
+        <result column="creation_date" property="creationDate"/>
+        <result column="creation_by" property="creationBy"/>
+    </resultMap>
+    <select id="getRoleListDao" resultMap="resultMapBrand">
+        select *from environment_role
+    </select>
+
+
+</mapper>
