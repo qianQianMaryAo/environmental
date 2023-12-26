@@ -66,4 +66,10 @@ public interface UserDao {
      * @return
      */
     Integer modifyUserPasswordDao(@Param("userPassword") String userPassword,@Param("id")Integer id);
+
+    /**
+     * 查询所有用户
+     * @return
+     */
+    List<User> selectAll();
 }

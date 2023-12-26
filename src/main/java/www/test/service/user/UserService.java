@@ -66,4 +66,9 @@ public interface UserService {
      * @return
      */
     Integer modifyUserPasswordService(String userPassword,Integer id);
+    /**
+     * 查询所有用户
+     * @return
+     */
+    List<User> selectAllService();
 }

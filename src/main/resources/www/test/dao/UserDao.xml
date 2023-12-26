@@ -63,5 +63,8 @@
     <select id="selectById" resultMap="resultMapBrand">
         select *from environment_user where id=#{id}
     </select>
+    <select id="selectAll" resultMap="resultMapBrand">
+        select *from environment_user
+    </select>
 
 </mapper>

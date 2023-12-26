@@ -56,4 +56,9 @@ public class UserServiceImpl implements UserService {
     public Integer modifyUserPasswordService(String userPassword,Integer id) {
         return userDao.modifyUserPasswordDao(userPassword,id);
     }
+
+    @Override
+    public List<User> selectAllService() {
+        return userDao.selectAll();
+    }
 }

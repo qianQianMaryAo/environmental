@@ -9,6 +9,7 @@
     <div class="providerAdd">
         <form id="userForm" name="userForm" method="post" action="${pageContext.request.contextPath }/water/add">
             <div>${errorMsg}</div>
+
             <!--div的class 为error是验证错误，ok是验证成功-->
                 <label for="COD">化学需氧量（COD）：</label>
                 <input type="text" name="COD" id="COD" value="${COD}">
@@ -22,7 +23,7 @@
             </div>
             <div>
                 <label for="NH3-N">氨氮（NH3-N）：</label>
-                <input type="text" name="NH3-N" id="NH3-N" value="${NH3-N}">
+                <input type="text" name="NH3-N" id="NH3-N" value="${NH3N}">
                 <font color="red"></font>
             </div>
             <div>
@@ -32,12 +33,12 @@
             </div>
             <div>
                 <label for="testTime">测样时间：</label>
-                <input type="text" name="testTime" id="testTime" value="${testTime}" onclick="WdatePicker()">
+                <input type="date" name="testTime" id="testTime" value="${testTimeDTO}" onclick="WdatePicker()">
                 <font color="red"></font>
             </div>
             <div>
                 <label for="uploadTime">上传时间：</label>
-                <input type="text" name="uploadTime" id="uploadTime" value="${uploadTimeDTO}" onclick="WdatePicker()" >
+                <input type="date" name="uploadTime" id="uploadTime" value="${uploadTimeDTO}" onclick="WdatePicker()" >
                 <font color="red"></font>
             </div>
             <div>

@@ -6,13 +6,29 @@
     <resultMap id="resultMapBrand" type="www.test.pojo.Menus">
         <result column="menu_code" property="menuCode"/>
         <result column="menu_desc" property="menuDesc"/>
-
     </resultMap>
     <resultMap id="resultRoleMenu" type="www.test.pojo.MenusRole">
     <result column="role_id" property="roleId"/>
     <result column="menu_id" property="menuId"/>
     </resultMap>
+    <resultMap id="resultRole" type="www.test.pojo.Role">
+        <result column="role_code" property="roleCode"/>
+        <result column="role_name" property="roleName"/>
+        <result column="creation_date" property="creationDate"/>
+        <result column="create_by" property="creationBy"/>
+    </resultMap>
 <select id="getManagementDao" resultMap="resultMapBrand">
         select m.*from environment_menu m,environment_role_menu r where m.id=r.menu_id and role_id=#{roleId}
     </select>
-        </mapper>
+    <select id="getRoleList" resultMap="resultRole">
+        select *from environment_role
+        <where>
+            <if test="roleName!=null and roleName!=''">
+                role_name=#{roleName}
+            </if>
+            <if test="creationBy!=null and creationBy!=''">
+                create_by=#{creationBy}
+            </if>
+        </where>
+    </select>
+</mapper>

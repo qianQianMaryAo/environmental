@@ -1,5 +1,6 @@
 package www.test.service.waterRecord;
 
+import www.test.pojo.Role;
 import www.test.pojo.WaterRecord;
 
 import java.util.List;
@@ -39,4 +40,6 @@ public interface WaterRecordService {
      * @return
      */
     Integer deleteByIdService(Integer id);
+
+
 }

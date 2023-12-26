@@ -67,8 +67,8 @@ public class WaterRecordController {
         waterRecord.setTN(new BigDecimal(TN));
         waterRecord.setNH3N(new BigDecimal(NH3N));
         waterRecord.setTP(new BigDecimal(TP));
-
-        waterRecord.setTestTimeDTO(testTime);
+        String format = new SimpleDateFormat("yyyy-MM-dd").format(testTime);
+        waterRecord.setTestTimeDTO(format);
         waterRecord.setUploadTimeDTO(uploadTime);
         //
         Date formatTime = new SimpleDateFormat("yyyy-MM-dd").parse(testTime);
@@ -81,33 +81,36 @@ public class WaterRecordController {
         waterRecord.setRoleId(Integer.valueOf(roleId));
         Integer record = waterRecordService.addWaterRecordService(waterRecord);
 
-        modelAndView.addObject("COD", waterRecord.getCOD());
-        modelAndView.addObject("TN", waterRecord.getTN());
-        modelAndView.addObject("NH3N", waterRecord.getNH3N());
-        modelAndView.addObject("TP", waterRecord.getTP());
-        modelAndView.addObject("testTime", waterRecord.getTestTimeDTO());
-        modelAndView.addObject("uploadBy", waterRecord.getUploadTimeDTO());
+
         modelAndView.addObject("roleId", waterRecord.getRoleId());
         if (record != null) {
-            modelAndView.setViewName("/water/query");
+            modelAndView.setViewName("redirect:/water/query");
         } else {
             modelAndView.addObject("errorMsg", "添加失败，请重试");
+            modelAndView.addObject("COD", waterRecord.getCOD());
+            modelAndView.addObject("TN", waterRecord.getTN());
+            modelAndView.addObject("NH3N", waterRecord.getNH3N());
+            modelAndView.addObject("TP", waterRecord.getTP());
+            modelAndView.addObject("testTime", waterRecord.getTestTimeDTO());
+            modelAndView.addObject("uploadBy", waterRecord.getUploadTimeDTO());
             modelAndView.setViewName("/jsp/waterRecordListAdd.jsp");
         }
         return modelAndView;
     }
-//点击修改按钮，获取的数据，并跳转至修改页
+
+    //点击修改按钮，获取的数据，并跳转至修改页
     @RequestMapping("/modify")
     public ModelAndView modify(String id,
                                ModelAndView modelAndView) throws Exception {
-       WaterRecord waterRecord= waterRecordService.selectById(Integer.valueOf(id));
-        modelAndView.addObject("water",waterRecord);
-        if (waterRecord!=null){
+        WaterRecord waterRecord = waterRecordService.selectById(Integer.valueOf(id));
+        modelAndView.addObject("water", waterRecord);
+        if (waterRecord != null) {
             modelAndView.setViewName("/jsp/waterRecordListModify.jsp");
         }
         return modelAndView;
     }
-     //修改页
+
+    //修改页
     @RequestMapping("/modifyWater")
     public ModelAndView modifymodifyWater(String id,
                                           @RequestParam("COD") String COD,
@@ -118,7 +121,7 @@ public class WaterRecordController {
                                           @RequestParam("uploadTime") String uploadTime,
                                           @RequestParam("uploadBy") String uploadBy,
                                           @RequestParam("roleId") String roleId,
-                               ModelAndView modelAndView) throws Exception {
+                                          ModelAndView modelAndView) throws Exception {
         WaterRecord waterRecord = new WaterRecord();
         waterRecord.setId(Integer.valueOf(id));
         waterRecord.setCOD(new BigDecimal(COD));
@@ -137,11 +140,33 @@ public class WaterRecordController {
         waterRecord.setRoleId(Integer.valueOf(roleId));
 
         Integer modifyWaterListService = waterRecordService.modifyWaterListService(waterRecord);
-        if (modifyWaterListService>0){
+        if (modifyWaterListService > 0) {
+            modelAndView.setViewName("redirect:/water/query");
+        } else {
+            modelAndView.addObject("errorMsg", "错误请重试");
+            modelAndView.setViewName("/jsp/waterRecordListModify.jsp");
+        }
+        return modelAndView;
+    }
+
+    @RequestMapping("/delete")
+    public ModelAndView delete(Integer id,
+                               ModelAndView modelAndView) {
+        Integer deleteByIdService = waterRecordService.deleteByIdService(id);
+        if (deleteByIdService>0){
             modelAndView.setViewName("/water/query");
+        }
+        return modelAndView;
+    }
+    @RequestMapping("/view")
+    public ModelAndView view(Integer id,
+                               ModelAndView modelAndView) {
+        WaterRecord water = waterRecordService.selectById(id);
+        modelAndView.addObject("water",water);
+        if (water!=null){
+            modelAndView.setViewName("/jsp/waterRecordView.jsp");
         }else {
             modelAndView.addObject("errorMsg","错误请重试");
-            modelAndView.setViewName("/jsp/waterRecordListModify.jsp");
         }
         return modelAndView;
     }
