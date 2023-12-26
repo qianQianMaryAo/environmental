@@ -26,4 +26,17 @@ public interface WaterRecordService {
      */
     Integer modifyWaterListService(WaterRecord waterRecord);
 
+    /**
+     * 通过ID查找
+     * @param id
+     * @return
+     */
+    WaterRecord selectById(Integer id);
+
+    /**
+     * 通过ID删除
+     * @param id
+     * @return
+     */
+    Integer deleteByIdService(Integer id);
 }

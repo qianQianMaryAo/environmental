@@ -28,4 +28,19 @@ public interface WaterRecordDao {
      * @return
      */
     Integer modifyWaterListDao(WaterRecord waterRecord);
+
+    /**
+     * 通过ID查找/浏览信息
+     * @param id
+     * @return
+     */
+    WaterRecord selectById(Integer id);
+
+    /**
+     * 通过ID删除
+     * @param id
+     * @return
+     */
+    Integer deleteById(Integer id);
+
 }

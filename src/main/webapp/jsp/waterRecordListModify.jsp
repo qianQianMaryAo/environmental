@@ -7,7 +7,7 @@
         <span>水质数据管理页面 >> 修改页面</span>
     </div>
     <div class="providerAdd">
-        <form id="userForm" name="userForm" method="post" action="${pageContext.request.contextPath }/water/modify">
+        <form id="userForm" name="userForm" method="post" action="${pageContext.request.contextPath }/water/modifyWater">
             <div>${errorMsg}</div>
             <!--div的class 为error是验证错误，ok是验证成功-->
             <label for="COD">化学需氧量（COD）：</label>

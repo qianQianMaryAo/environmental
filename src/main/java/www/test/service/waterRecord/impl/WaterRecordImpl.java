@@ -27,4 +27,14 @@ public class WaterRecordImpl implements WaterRecordService {
     public Integer modifyWaterListService(WaterRecord waterRecord) {
         return waterRecordDao.modifyWaterListDao(waterRecord);
     }
+
+    @Override
+    public WaterRecord selectById(Integer id) {
+        return waterRecordDao.selectById(id);
+    }
+
+    @Override
+    public Integer deleteByIdService(Integer id) {
+        return waterRecordDao.deleteById(id);
+    }
 }

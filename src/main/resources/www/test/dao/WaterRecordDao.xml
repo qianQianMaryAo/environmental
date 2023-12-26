@@ -32,4 +32,10 @@
              </if>
          </where>
     </select>
+    <select id="selectById" resultMap="waterMapper">
+        select *from environment_water_record where id=#{id}
+    </select>
+    <delete id="deleteById">
+        delete from environment_water_record where id=#{id}
+    </delete>
 </mapper>

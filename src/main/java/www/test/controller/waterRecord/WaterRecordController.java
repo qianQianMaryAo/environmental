@@ -96,13 +96,47 @@ public class WaterRecordController {
         }
         return modelAndView;
     }
-
+//点击修改按钮，获取的数据，并跳转至修改页
     @RequestMapping("/modify")
     public ModelAndView modify(String id,
                                ModelAndView modelAndView) throws Exception {
+       WaterRecord waterRecord= waterRecordService.selectById(Integer.valueOf(id));
+        modelAndView.addObject("water",waterRecord);
+        if (waterRecord!=null){
+            modelAndView.setViewName("/jsp/waterRecordListModify.jsp");
+        }
+        return modelAndView;
+    }
+     //修改页
+    @RequestMapping("/modifyWater")
+    public ModelAndView modifymodifyWater(String id,
+                                          @RequestParam("COD") String COD,
+                                          @RequestParam("TN") String TN,
+                                          @RequestParam("NH3-N") String NH3N,
+                                          @RequestParam("TP") String TP,
+                                          @RequestParam("testTime") String testTime,
+                                          @RequestParam("uploadTime") String uploadTime,
+                                          @RequestParam("uploadBy") String uploadBy,
+                                          @RequestParam("roleId") String roleId,
+                               ModelAndView modelAndView) throws Exception {
+        WaterRecord waterRecord = new WaterRecord();
+        waterRecord.setId(Integer.valueOf(id));
+        waterRecord.setCOD(new BigDecimal(COD));
+        waterRecord.setTN(new BigDecimal(TN));
+        waterRecord.setNH3N(new BigDecimal(NH3N));
+        waterRecord.setTP(new BigDecimal(TP));
 
 
+        Date formatTime = new SimpleDateFormat("yyyy-MM-dd").parse(testTime);
+        long time = formatTime.getTime();
+        Timestamp timestamp = new Timestamp(time);
+        waterRecord.setTestTime(timestamp);
+        Date formatBy = new SimpleDateFormat("yyyy-MM-dd").parse(uploadTime);
+        waterRecord.setUploadTime(new Timestamp(formatBy.getTime()));
+        waterRecord.setUploadBy(uploadBy);
+        waterRecord.setRoleId(Integer.valueOf(roleId));
 
+        Integer modifyWaterListService = waterRecordService.modifyWaterListService(waterRecord);
         if (modifyWaterListService>0){
             modelAndView.setViewName("/water/query");
         }else {
@@ -111,5 +145,4 @@ public class WaterRecordController {
         }
         return modelAndView;
     }
-
 }
