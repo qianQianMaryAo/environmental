@@ -20,4 +20,14 @@ public class RoleServiceImpl implements RoleService {
     public List<Role> getRoleListService() {
         return roleDao.getRoleListDao();
     }
+
+    @Override
+    public Role getRoleListByIdService(Integer id) {
+        return roleDao.getRoleListById(id);
+    }
+
+    @Override
+    public Integer deleteByIdService(Integer id) {
+        return roleDao.deleteById(id);
+    }
 }

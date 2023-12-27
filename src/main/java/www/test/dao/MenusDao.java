@@ -4,6 +4,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 import www.test.pojo.Menus;
 import www.test.pojo.Role;
+import www.test.pojo.WaterRecord;
 
 import java.util.List;
 
@@ -24,4 +25,21 @@ public interface MenusDao {
      * @return
      */
     List<Role> getRoleList(@Param("roleName") String roleName,@Param("creationBy")  String creationBy);
+
+    /**
+     * 插入用户角色
+     * @param role
+     * @return
+     */
+    Integer addMenusList(Role role);
+
+    /**
+     * 修改用户角色
+     * @param role
+     * @return
+     */
+    Integer modifyMenusList(Role role);
+
+
+
 }

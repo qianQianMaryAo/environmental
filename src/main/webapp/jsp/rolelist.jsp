@@ -46,10 +46,10 @@
                             <span>${role.roleName}</span>
                         </td>
                         <td>
-                            <span>${role.creationBy }</span>
+                            <span>${role.creationDate }</span>
                         </td>
                         <td>
-                            <span>${role.creationDate }</span>
+                            <span>${role.creationBy}</span>
                         </td>
                         <td>
                             <span><a href="${pageContext.request.contextPath}/menus/modify?id=${role.id}"><img src="${pageContext.request.contextPath }/images/xiugai.png" alt="修改" title="修改"/>修改菜单</a></span>

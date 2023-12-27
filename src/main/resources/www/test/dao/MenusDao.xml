@@ -17,7 +17,15 @@
         <result column="creation_date" property="creationDate"/>
         <result column="create_by" property="creationBy"/>
     </resultMap>
-<select id="getManagementDao" resultMap="resultMapBrand">
+    <insert id="addMenusList">
+        insert into environment_role( role_code, role_name,creation_date, create_by)
+        VALUES(#{roleCode},#{roleName},#{creationDate},#{creationBy})
+    </insert>
+    <update id="modifyMenusList">
+        update environment_role set role_code=#{roleCode} ,role_name=#{roleName},
+        creation_date=#{creationDate},create_by=#{creationBy} where id=#{id}
+    </update>
+    <select id="getManagementDao" resultMap="resultMapBrand">
         select m.*from environment_menu m,environment_role_menu r where m.id=r.menu_id and role_id=#{roleId}
     </select>
     <select id="getRoleList" resultMap="resultRole">

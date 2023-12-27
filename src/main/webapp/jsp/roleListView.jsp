@@ -9,8 +9,8 @@
     <div class="providerView">
         <p><strong>用户编号：</strong><span>${role.roleCode }</span></p>
         <p><strong>用户名称：</strong><span>${role.roleName }</span></p>
-        <p><strong>创建人：</strong><span>${role.createdByName }</span></p>
-        <p><strong>创建时间：</strong><span>${role.creationDateStr }</span></p>
+        <p><strong>创建人：</strong><span>${role.creationBy }</span></p>
+        <p><strong>创建时间：</strong><span>${role.creationDate}</span></p>
 
         <div class="providerAddBtn">
             <input type="button" value="返回" onclick="location.href=('${pageContext.request.contextPath }/menus/query') " >

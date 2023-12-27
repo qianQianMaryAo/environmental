@@ -19,4 +19,18 @@ public interface MenusService {
      * @return
      */
     List<Role> getRoleListService(String roleName, String creationBy);
+
+    /**
+     * 插入角色
+     * @param role
+     * @return
+     */
+    Integer addMenusListService(Role role);
+
+    /**
+     * 修改用户角色
+     * @param role
+     * @return
+     */
+    Integer modifyMenusListService(Role role);
 }

@@ -22,4 +22,14 @@ public class MenusServiceImpl implements MenusService {
     public List<Role> getRoleListService(String roleName, String creationBy) {
         return menusDao.getRoleList(roleName,creationBy);
     }
+
+    @Override
+    public Integer addMenusListService(Role role) {
+        return menusDao.addMenusList(role);
+    }
+
+    @Override
+    public Integer modifyMenusListService(Role role) {
+        return menusDao.modifyMenusList(role);
+    }
 }

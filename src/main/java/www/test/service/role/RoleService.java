@@ -10,4 +10,17 @@ public interface RoleService {
      * @return
      */
     List<Role> getRoleListService();
+
+    /**
+     * 通过ID查询
+     * @param id
+     * @return
+     */
+    Role getRoleListByIdService(Integer id);
+    /**
+     * 通过ID删除
+     * @param id
+     * @return
+     */
+    Integer deleteByIdService(Integer id);
 }

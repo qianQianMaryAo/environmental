@@ -8,4 +8,17 @@ import java.util.List;
 @Repository
 public interface RoleDao {
     List<Role> getRoleListDao();
+
+    /**
+     * 通过ID查询
+     * @param id
+     * @return
+     */
+    Role getRoleListById(Integer id);
+    /**
+     * 通过ID删除
+     * @param id
+     * @return
+     */
+    Integer deleteById(Integer id);
 }
