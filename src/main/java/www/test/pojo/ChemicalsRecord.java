@@ -15,6 +15,15 @@ public class ChemicalsRecord {
     private Integer mPurchase;
     private Integer mUse;
     private Integer mSurplus;
+    private String createBy;
+
+    public String getCreateBy() {
+        return createBy;
+    }
+
+    public void setCreateBy(String createBy) {
+        this.createBy = createBy;
+    }
 
     @Override
     public String toString() {

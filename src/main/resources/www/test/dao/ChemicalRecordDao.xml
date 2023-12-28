@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="www.test.dao.ChemicalRecordDao">
+    <resultMap id="chemicalRecord" type="www.test.pojo.ChemicalsRecord">
+        <result column="record_date" property="recordDate"/>
+        <result column="carbon_source" property="carbonSource"/>
+        <result column="c_purchase" property="cPurchase"/>
+        <result column="c_use" property="cUse"/>
+        <result column="c_surplus" property="cSurplus"/>
+        <result column="a_purchase" property="aPurchase"/>
+        <result column="a_use" property="aUse"/>
+        <result column="a_surplus" property="aSurplus"/>
+        <result column="m_purchase" property="mPurchase"/>
+        <result column="m_use" property="mUse"/>
+        <result column="m_surplus" property="mSurplus"/>
+        <result column="create_by" property="createBy"/>
+    </resultMap>
+    <insert id="addChemicalRecordDao">
+    insert into environment_chemicals_record(record_date, carbon_source, c_purchase, c_use, c_surplus, pac, a_purchase, a_use, a_surplus, pam, m_purchase, m_use, m_surplus,create_by)
+    VALUES (#{recordDate,#{carbonSource},#{cPurchase},#{cUse},#{cSurplus},#{pac},#{aPurchase},#{aUse},#{aSurplus},#{pam},#{mPurchase},#{mUse},#{mSurplus},#{createBy});
+    </insert>
+    <update id="modifyChemicalDao">
+
+
+    </update>
+    <delete id="deleteById">
+        delete from environment_chemicals_record where id=#{id}
+    </delete>
+    <select id="selectChemicalList" resultMap="chemicalRecord">
+        select *from environment_chemicals_record
+        <where>
+            <if test="createBy!=null and createBy!=''">
+                create_by=#{createBy}
+            </if>
+        </where>
+    </select>
+</mapper>

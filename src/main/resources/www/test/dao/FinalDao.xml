@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="www.test.dao.FinalDao">
+    <resultMap id="finalMapper" type="www.test.pojo.Final">
+        <result column="project_name" property="projectName"/>
+        <result column="technology_name" property="technologyName"/>
+        <result column=" sewage_quantity" property="sewageQuality"/>
+        <result column="external_ratio" property="externalRatio"/>
+        <result column="internal_ratio" property="internalRatio"/>
+        <result column="desiginNH3-N" property="designNH3N"/>
+    </resultMap>
+    <insert id="addFianlDao">
+
+    </insert>
+    <update id="modifyFinalDao">
+
+    </update>
+    <select id="selectFinalList" resultType="www.test.pojo.ChemicalsRecord">
+
+    </select>
+</mapper>
