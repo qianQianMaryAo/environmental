@@ -1,6 +1,8 @@
 package www.test.service.menu;
 
+import org.apache.ibatis.annotations.Param;
 import www.test.pojo.Menus;
+import www.test.pojo.MenusRole;
 import www.test.pojo.Role;
 
 import java.util.List;
@@ -33,4 +35,23 @@ public interface MenusService {
      * @return
      */
     Integer modifyMenusListService(Role role);
+    /**
+     * 查找所有菜单
+     */
+    List<Menus> selectAllService();
+    /**
+     * 删除
+     * @param roleId
+     * @param menuId
+     * @return
+     */
+    Integer deleteByIdService(Integer roleId,  Integer menuId);
+
+    /**
+     * 通过ID插入
+     * @param roleId
+     * @param menuId
+     * @return
+     */
+    Integer insetByIdService( Integer roleId, Integer menuId);
 }

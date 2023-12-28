@@ -10,7 +10,7 @@
         <form action="${pageContext.request.contextPath}/menus/menusModify" method="get">
             <input type="hidden" name="id" value="${id}">
             <c:forEach var="menus" items="${menusList}" varStatus="status">
-                <input type="checkbox" name="menuIds" value="${menus.id}" ${menus.flag?"checked":""}>${menus.menuName}<br>
+                <input type="checkbox" name="menusId" value="${menus.id}" ${menus.flag?"checked":""}>${menus.menuCode}<br>
             </c:forEach>
             <input type="submit"/>
         </form>

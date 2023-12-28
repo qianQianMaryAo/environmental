@@ -19,7 +19,7 @@
     </resultMap>
     <insert id="addChemicalRecordDao">
     insert into environment_chemicals_record(record_date, carbon_source, c_purchase, c_use, c_surplus, pac, a_purchase, a_use, a_surplus, pam, m_purchase, m_use, m_surplus,create_by)
-    VALUES (#{recordDate,#{carbonSource},#{cPurchase},#{cUse},#{cSurplus},#{pac},#{aPurchase},#{aUse},#{aSurplus},#{pam},#{mPurchase},#{mUse},#{mSurplus},#{createBy});
+    VALUES (#{recordDate},#{carbonSource},#{cPurchase},#{cUse},#{cSurplus},#{pac},#{aPurchase},#{aUse},#{aSurplus},#{pam},#{mPurchase},#{mUse},#{mSurplus},#{createBy});
     </insert>
     <update id="modifyChemicalDao">
 

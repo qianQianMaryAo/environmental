@@ -3,6 +3,7 @@ package www.test.dao;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 import www.test.pojo.Menus;
+import www.test.pojo.MenusRole;
 import www.test.pojo.Role;
 import www.test.pojo.WaterRecord;
 
@@ -39,7 +40,25 @@ public interface MenusDao {
      * @return
      */
     Integer modifyMenusList(Role role);
+    /**
+     * 查找所有菜单
+     */
+    List<Menus> selectAll();
 
+    /**
+     * 删除
+     * @param roleId
+     * @param menuId
+     * @return
+     */
+    Integer deleteById(@Param("roleId") Integer roleId,@Param("menuId") Integer menuId);
 
+    /**
+     * 通过ID插入
+     * @param roleId
+     * @param menuId
+     * @return
+     */
+    Integer insetById(@Param("roleId") Integer roleId,@Param("menuId") Integer menuId);
 
 }

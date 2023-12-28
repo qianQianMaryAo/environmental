@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import www.test.dao.MenusDao;
 import www.test.pojo.Menus;
+import www.test.pojo.MenusRole;
 import www.test.pojo.Role;
 import www.test.service.menu.MenusService;
 
@@ -32,4 +33,21 @@ public class MenusServiceImpl implements MenusService {
     public Integer modifyMenusListService(Role role) {
         return menusDao.modifyMenusList(role);
     }
+
+    @Override
+    public List<Menus> selectAllService() {
+        return menusDao.selectAll();
+    }
+
+    @Override
+    public Integer deleteByIdService(Integer roleId, Integer menuId) {
+        return menusDao.deleteById(roleId,menuId);
+    }
+
+    @Override
+    public Integer insetByIdService(Integer roleId, Integer menuId) {
+        return menusDao.insetById(roleId,menuId);
+    }
+
+
 }
