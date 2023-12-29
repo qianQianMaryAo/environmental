@@ -8,7 +8,7 @@ import java.util.List;
 @Repository
 public interface ChemicalRecordDao {
     /**
-     * 插入水质数据
+     * 插入药剂数据
      * @param chemicalRecord
      * @return
      */

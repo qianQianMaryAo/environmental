@@ -11,13 +11,26 @@
         <result column="internal_ratio" property="internalRatio"/>
         <result column="desiginNH3-N" property="designNH3N"/>
     </resultMap>
-    <insert id="addFianlDao">
-
+    <insert id="addFinalDao">
+    insert into environment_final(project_name, technology_name, ` sewage_quantity`, hrt, external_ratio, internal_ratio, designCOD, desiginTN, `desiginNH3-N`, desiginTP)
+    VALUES (#{projectName},#{technologyName},#{sewageQuality},#{hrt},#{externalRatio},#{internalRatio},#{designCOD},#{desiginTN},#{designNH3N},#{desiginTP})
     </insert>
     <update id="modifyFinalDao">
-
+    update environment_final set project_name=#{projectName},technology_name=#{technologyName},` sewage_quantity`=#{sewageQuality},
+    hrt=#{hrt},external_ratio=#{externalRatio},internal_ratio=#{internalRatio},designCOD=#{designCOD},desiginTN=#{desiginTN},`desiginNH3-N`=#{designNH3N},desiginTP=#{desiginTP} where id=#{id}
     </update>
+    <delete id="deleteById">
+     delete from environment_final where id=#{id}
+    </delete>
     <select id="selectFinalList" resultType="www.test.pojo.ChemicalsRecord">
-
+    select *from environment_final
+    <where>
+        <if test="projectName!=null and projectName!=''">
+            project_name=#{projectName}
+        </if>
+        <if test="technologyName!=null and technologyName!=''">
+           and  technology_name=#{technologyName}
+        </if>
+    </where>
     </select>
 </mapper>

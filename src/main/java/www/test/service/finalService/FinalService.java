@@ -1,33 +1,31 @@
-package www.test.dao;
+package www.test.service.finalService;
 
-import org.springframework.stereotype.Repository;
 import www.test.pojo.ChemicalsRecord;
 import www.test.pojo.Final;
 
 import java.util.List;
 
-@Repository
-public interface FinalDao {
+public interface FinalService {
     /**
      * 插入数据
      * @param finalE
      * @return
      */
-    Integer addFinalDao(Final finalE);
+    Integer addFinalService(Final finalE);
 
     /**
      * 列表，及条件查询
      * @param technologyName
      * @return
      */
-    List<ChemicalsRecord> selectFinalList(String technologyName);
+    List<ChemicalsRecord> selectFinalListService(String technologyName);
 
     /**
      * 修改数据
      * @param finalE
      * @return
      */
-    Integer modifyFinalDao(Final finalE);
+    Integer modifyFinalService(Final finalE);
 
     /**
      * 删除数据

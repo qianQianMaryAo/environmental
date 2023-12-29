@@ -22,8 +22,10 @@
     VALUES (#{recordDate},#{carbonSource},#{cPurchase},#{cUse},#{cSurplus},#{pac},#{aPurchase},#{aUse},#{aSurplus},#{pam},#{mPurchase},#{mUse},#{mSurplus},#{createBy});
     </insert>
     <update id="modifyChemicalDao">
-
-
+    update environment_chemicals_record set
+    carbon_source=#{carbonSource},c_purchase=#{cPurchase},c_use=#{cUse},c_surplus=#{cSurplus},
+    pac=#{pac},a_purchase=#{aPurchase},a_use=#{aUse},a_surplus=#{aSurplus},
+    pam=#{pam},m_purchase=#{mPurchase},m_use=#{mUse},m_surplus=#{mSurplus} where id=1
     </update>
     <delete id="deleteById">
         delete from environment_chemicals_record where id=#{id}

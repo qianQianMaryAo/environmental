@@ -2,20 +2,21 @@ package www.test.dao;
 
 import org.springframework.stereotype.Repository;
 import www.test.pojo.ChemicalsRecord;
+import www.test.pojo.Trouble;
 
 @Repository
 public interface TroubleDao {
     /**
      * 插入水质数据
-     * @param chemicalRecord
+     * @param trouble
      * @return
      */
-    Integer addTroubleDao(ChemicalsRecord chemicalRecord);
+    Integer addTroubleDao(Trouble trouble);
     /**
      * 修改数据
-     * @param chemicalsRecord
+     * @param trouble
      * @return
      */
-    Integer modifTroubleDao(ChemicalsRecord chemicalsRecord);
+    Integer modifyTroubleDao(Trouble trouble);
 
 }

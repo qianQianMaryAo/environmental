@@ -8,9 +8,10 @@
         <result column="solution_date" property="solutionDate"/>
     </resultMap>
     <insert id="addTroubleDao">
-
+    insert into environment_trouble( trouble_date, contents, cause, recorder, solution_date)
+     (#{troubleDte},#{contents},#{cause},#{recorder},#{solutionDate});
     </insert>
-    <update id="modifTroubleDao">
-
+    <update id="modifyTroubleDao">
+    update environment_trouble set contents=#{contents},cause=#{cause},recorder=#{recorder} where id=#{id}
     </update>
 </mapper>
