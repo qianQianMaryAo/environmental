@@ -19,4 +19,5 @@ public interface TroubleDao {
      */
     Integer modifyTroubleDao(Trouble trouble);
 
+
 }

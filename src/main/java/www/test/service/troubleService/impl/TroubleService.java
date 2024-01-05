@@ -16,6 +16,6 @@ public class TroubleService implements www.test.service.troubleService.TroubleSe
 
     @Override
     public Integer modifyTroubleService(Trouble trouble) {
-        return troubleDao.modifTroubleDao(trouble);
+        return troubleDao.modifyTroubleDao(trouble);
     }
 }
